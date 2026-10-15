@@ -1,6 +1,6 @@
 ## Installation
 
-clone https://github.com/DuncanMC/RESTChallenge.git
+Clone https://github.com/DuncanMC/RESTChallenge.git
 open project in Xcode
 Build and run
 
@@ -18,10 +18,10 @@ The app uses Okta’s Auth0 service and their iOS framework, whiprovidemported a
 I set up 3 test logins to the demo app:
 
 | Email | Password | Username in users API |
-| :— | :—: | —:|
+| :--- | :---: | ---: |
 | Sincere@april.biz | Crashes.receded.bond | Bret |
-| Nathan@yesenia.net	| Smoking.ruler.betrayed | Samantha |
-| JoeBobFred@gmail.com	| Comedic.heated.mongrel | none (not in users, but defined in Auth0) |
+| Nathan@yesenia.net | Smoking.ruler.betrayed | Samantha |
+| JoeBobFred@gmail.com | Comedic.heated.mongrel | none (not in users, but defined in Auth0) |
 
 Once in the app, enter one of the above usernames and click “Log in”. You’ll have to click “Continue” to authorize the app to open an embedded browser for the PKCE authentication. Then enter the password and click “continue” to complete the login.
 
