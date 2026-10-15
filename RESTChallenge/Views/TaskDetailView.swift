@@ -26,6 +26,7 @@ struct TaskDetailView: View {
                     }
                 }
                 .pickerStyle(.segmented)
+                .accessibilityIdentifier("taskStatusPicker")
             }
         }
         .navigationTitle("Task Details")

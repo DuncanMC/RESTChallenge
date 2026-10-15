@@ -34,31 +34,37 @@ struct LoginView: View {
                     VStack(spacing: 4) {
                         Text(account.name)
                             .font(.headline)
+                            .accessibilityIdentifier("accountName")
                         Text(account.email)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
+                            .accessibilityIdentifier("accountEmail")
                     }
                 } else {
                     TextField("Username", text: $session.username)
                         .textFieldStyle(.roundedBorder)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
+                        .accessibilityIdentifier("usernameField")
                 }
 
                 Text(viewModel.statusMessage)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
+                    .accessibilityIdentifier("loginStatusMessage")
 
                 Button(viewModel.loginButtonTitle) {
                     Task { await viewModel.logInOrOut() }
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(!viewModel.canSubmit)
+                .accessibilityIdentifier("loginButton")
 
                 NavigationLink("Manage Tasks", value: AppRoute.taskDashboard)
                     .buttonStyle(.bordered)
                     .disabled(!viewModel.canManageTasks)
+                    .accessibilityIdentifier("manageTasksButton")
             }
             .padding()
             .navigationTitle("Account")

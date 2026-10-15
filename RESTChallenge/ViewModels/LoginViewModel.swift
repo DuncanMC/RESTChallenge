@@ -20,11 +20,11 @@ final class LoginViewModel {
     /// stay alive across navigation.
     let dashboardViewModel: TaskDashboardViewModel
 
-    private let authManager: AuthenticationManager
+    private let authManager: any AuthenticationManaging
     private let networkManager: NetworkManager
 
     init(session: SessionState? = nil,
-         authManager: AuthenticationManager = AuthenticationManager(),
+         authManager: any AuthenticationManaging = AuthenticationManager(),
          networkManager: NetworkManager = NetworkManager()) {
         let resolvedSession = session ?? SessionState()
         self.session = resolvedSession
@@ -36,7 +36,7 @@ final class LoginViewModel {
 
     // MARK: - View-facing state derived from SessionState
 
-    var statusMessage: String { session.status.message }
+    var statusMessage: String { session.accountLoadError ?? session.status.message }
 
     var isLoggedIn: Bool { session.isAuthenticated }
 
@@ -112,6 +112,7 @@ final class LoginViewModel {
     /// Fetches account info from the `/users` API after a successful login,
     /// matching the entered username where possible.
     private func loadAccount() async {
+        session.accountLoadError = nil
         do {
             let users = try await networkManager.fetchUsers()
             let entered = session.username
@@ -122,9 +123,10 @@ final class LoginViewModel {
 //                ?? users.first { $0.email.lowercased() == entered }
 //                ?? users.first
         } catch {
-            session.status = .unsuccessful(
+            // Authentication already succeeded; report the lookup failure
+            // without invalidating the session.
+            session.accountLoadError =
                 "Could not load account info: \(error.localizedDescription)"
-            )
         }
     }
 }

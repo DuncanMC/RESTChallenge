@@ -41,21 +41,16 @@ enum AuthStatus: Equatable {
 final class SessionState {
     /// The username entered on the login screen.
     var username = ""
-    
+
     /// The current authentication status.
-    var status: AuthStatus = .signedOut {
-        didSet {
-            switch status {
-            case .unsuccessful(let reason):
-                print("Login unsuccessful. Reason: \n \(reason)")
-            default:
-                break
-            }
-        }
-    }
+    var status: AuthStatus = .signedOut
 
     /// Account info fetched from the `/users` API after login.
     var account: User?
+
+    /// Error from fetching account info. Kept separate from `status` so a
+    /// failed account lookup doesn't invalidate a successful authentication.
+    var accountLoadError: String?
 
     /// When the current session's tokens expire.
     var tokenExpiresAt: Date?
@@ -74,6 +69,7 @@ final class SessionState {
     func reset() {
         status = .signedOut
         account = nil
+        accountLoadError = nil
         tokenExpiresAt = nil
     }
 }

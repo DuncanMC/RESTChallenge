@@ -22,9 +22,11 @@ struct TaskDashboardView: View {
                     }
                 }
                 .pickerStyle(.segmented)
+                .accessibilityIdentifier("statusFilterPicker")
 
                 if viewModel.currentUserID != nil {
                     Toggle("My Tasks Only", isOn: $state.showOnlyMyTasks)
+                        .accessibilityIdentifier("myTasksToggle")
                 }
             }
             Section {
@@ -37,6 +39,7 @@ struct TaskDashboardView: View {
                                 .lineLimit(1)
                         }
                     }
+                    .accessibilityIdentifier("taskRow-\(todo.id)")
                 }
             }
         }
@@ -54,16 +57,19 @@ struct TaskDashboardView: View {
                         .lineLimit(2)
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity)
+                        .accessibilityIdentifier("dashboardErrorMessage")
                 }
                 HStack {
                     Button("Refresh") {
                         Task { await viewModel.requestRefresh() }
                     }
+                    .accessibilityIdentifier("refreshButton")
                     Spacer()
                     Button("Post Changes") {
                         viewModel.postChanges()
                     }
                     .disabled(!state.isDirty)
+                    .accessibilityIdentifier("postChangesButton")
                 }
                 .buttonStyle(.bordered)
             }
