@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AEB16A1830811122001D0174 /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = AEB16A1730811122001D0174 /* Auth0 */; };
+		AEC5157030812453000DA80B /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEC5156F30812453000DA80B /* Auth0.plist */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		AEB169FA308110C0001D0174 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +32,25 @@
 		AEB169EC308110BF001D0174 /* RESTChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RESTChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB169F9308110C0001D0174 /* RESTChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RESTChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB16A03308110C0001D0174 /* RESTChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RESTChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEC5156F30812453000DA80B /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AEC5161C3081362C000DA80B /* Exceptions for "RESTChallenge" folder in "RESTChallenge" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AEB169EB308110BF001D0174 /* RESTChallenge */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		AEB169EE308110BF001D0174 /* RESTChallenge */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AEC5161C3081362C000DA80B /* Exceptions for "RESTChallenge" folder in "RESTChallenge" target */,
+			);
 			path = RESTChallenge;
 			sourceTree = "<group>";
 		};
@@ -52,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB16A1830811122001D0174 /* Auth0 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +95,7 @@
 		AEB169E3308110BF001D0174 = {
 			isa = PBXGroup;
 			children = (
+				AEC5156F30812453000DA80B /* Auth0.plist */,
 				AEB169EE308110BF001D0174 /* RESTChallenge */,
 				AEB169FC308110C0001D0174 /* RESTChallengeTests */,
 				AEB16A06308110C0001D0174 /* RESTChallengeUITests */,
@@ -112,6 +133,7 @@
 			);
 			name = RESTChallenge;
 			packageProductDependencies = (
+				AEB16A1730811122001D0174 /* Auth0 */,
 			);
 			productName = RESTChallenge;
 			productReference = AEB169EC308110BF001D0174 /* RESTChallenge.app */;
@@ -195,6 +217,9 @@
 			);
 			mainGroup = AEB169E3308110BF001D0174;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				AEB16A1630811122001D0174 /* XCRemoteSwiftPackageReference "Auth0" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = AEB169ED308110BF001D0174 /* Products */;
 			projectDirPath = "";
@@ -212,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEC5157030812453000DA80B /* Auth0.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,11 +421,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RESTChallenge/RESTChallenge.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VBNQV8KG4G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RESTChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -427,11 +455,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = RESTChallenge/RESTChallenge.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VBNQV8KG4G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RESTChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -578,6 +608,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AEB16A1630811122001D0174 /* XCRemoteSwiftPackageReference "Auth0" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/Auth0.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AEB16A1730811122001D0174 /* Auth0 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEB16A1630811122001D0174 /* XCRemoteSwiftPackageReference "Auth0" */;
+			productName = Auth0;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AEB169E4308110BF001D0174 /* Project object */;
 }

@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct RESTChallengeApp: App {
+    @State private var loginViewModel = LoginViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView(viewModel: loginViewModel)
         }
     }
 }
